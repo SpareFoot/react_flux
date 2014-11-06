@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=1024, user-scalable=no">
+
+  <title>Your deck.js Presentation</title>
+
+  <!-- Required stylesheet -->
+  <link rel="stylesheet" href="core/deck.core.css">
+
+  <!-- Extension CSS files go here. Remove or add as needed. -->
+  <link rel="stylesheet" media="screen" href="extensions/goto/deck.goto.css">
+  <link rel="stylesheet" media="screen" href="extensions/menu/deck.menu.css">
+  <link rel="stylesheet" media="screen" href="extensions/navigation/deck.navigation.css">
+  <link rel="stylesheet" media="screen" href="extensions/status/deck.status.css">
+  <link rel="stylesheet" media="screen" href="extensions/scale/deck.scale.css">
+
+  <!-- Style theme. More available in /themes/style/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/style/swiss.css">
+
+  <!-- Transition theme. More available in /themes/transition/ or create your own. -->
+  <link rel="stylesheet" media="screen" href="themes/transition/horizontal-slide.css">
+
+  <!-- Basic black and white print styles -->
+  <link rel="stylesheet" media="print" href="core/print.css">
+
+  <!-- Required Modernizr file -->
+  <script src="modernizr.custom.js"></script>
+</head>
+<body>
+  <div class="deck-container">
+
+    <!-- Begin slides. Just make elements with a class of slide. -->
+
+    <section class="slide">
+      <h1>React + Flux</h1>
+    </section>
+
+    <section class="slide">
+      <h1>Or...</h1>
+    </section>
+
+    <section class="slide">
+      <h1>Six months of pure bliss</h1>
+    </section>
+
+    <section class="slide">
+      <div class="deck-slide-scaler">
+
+        <h2>React + Flux + Gulp + Browserify + node.js</h2>
+
+        <ul>
+          <li class="slide">
+            <h3>React</h3>
+            <p>
+              A javascript library for building user interfaces - composable view components - the V in MVC
+            </p>
+          </li>
+          <li class="slide">
+            <h3>Flux</h3>
+            <p>
+              Unidirectional data flow application architecture
+            </p>
+          </li>
+          <li class="slide">
+            <h3>Gulp</h3>
+            <p>
+              The streaming build system - super fast
+            </p>
+          </li>
+          <li class="slide">
+            <h3>Browserify</h3>
+            <p>
+              Commonjs modules for the browser
+            </p>
+          </li>
+          <li class="slide">
+            <h3>node.js</h3>
+            <p>
+              Makes it all come together
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+      <h1>Let&apos;s backup</h1>
+    </section>
+
+    <section class="slide">
+      <div class="deck-slide-scaler">
+
+        <h2>The rise of the Single Page App</h2>
+
+        <ul>
+          <li class="slide">
+            <h3>MVC</h3>
+            <p>The standard client / server architecture</p>
+          </li>
+          <li class="slide">
+            <h3>Backbone</h3>
+            <p>A very unopinionated application architecture consisting of models, collections, views, routes and underscore.js</p>
+          </li>
+          <li class="slide">
+            <h3>Require JS</h3>
+            <p>First on the scene (maybe) JS resource manager</p>
+          </li>
+          <li class="slide">
+            <h3>Grunt</h3>
+            <p>First widely used (maybe) and successful (probably) JS build tool / task runner</p>
+          </li>
+          <li class="slide">
+            <h3>node.js</h3>
+            <p>The big bang of the front end universe</p>
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>What is React?</h2>
+
+        <div class="slide">
+          <h3>React is Declarative</h3>
+          <p>
+            React allows your declare the UI of your application using components. When the data changes, React renders only updating the changed parts.
+          </p>
+        </div>
+
+        <div class="slide">
+          <h3>Components</h3>
+          <p>
+            Components are written in JSX (technically, don&apos;t have to be). These components are easily moved around because they encapsulate the presentation, events and actions all together.
+          </p>
+        </div>
+
+        <div class="slide">
+          <h3>Virtual DOM</h3>
+          <p>
+            React uses a virtual DOM diff implementation for ultra-high performance. (straight from react.com)
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>
+          React.createClass
+        </h2>
+
+        <p>hello-world.js</p>
+
+        <pre><code>var React = require('react');
+module.exports = React.createClass({
+  render: function() {
+    return (
+      &lt;p&gt;
+        Hello, &lt;input type="text" placeholder="Your name here" /&gt;!
+        It is {this.props.date.toTimeString()}
+      &lt;/p&gt;
+    );
+  }
+});</code></pre>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>
+          React.render
+        </h2>
+
+        <p>app.js</p>
+
+        <pre>
+          <code>
+var React = require('react');
+var HelloWorld = require('./hello-world.react');
+
+React.render(
+  &lt;HelloWorld date={new Date()} /&gt;,
+  document.getElementById('example')
+);
+          </code>
+        </pre>
+      </div>
+
+    </section>
+
+    <section class="slide">
+      <div class="deck-slide-scaler">
+
+      <h2>Virtual DOM</h2>
+
+      <div class="slide">
+
+        <p>
+          Managing state and manipulating the DOM can get messy. React allows your application to be declare components using JSX. Components are just HTML bound to data.
+        </p>
+
+        <p>
+          React&apos;s strength is that it was designed to mitigate managing data state and directly manipulating the DOM.
+        </p>
+
+        <p>
+          Components are meant to reactive. When data changes and the component is rendered. This is not an expensive opperation because React uses a virtaul dom.
+        </p>
+
+      </div>
+
+      <div class="slide">
+
+        <h3>Virtual DOM in action</h3>
+        <p>
+          <a href="http://requirebin.com/?gist=5492847b9a9025e64bab" target="_blank">http://requirebin.com/?gist=5492847b9a9025e64bab</a>
+        </p>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <blockquote>
+
+          <p>
+            "The greatest trick old-school procedural programming ever pulled … was convincing the world to rebrand it as 'Facebook Flux.'"
+          </p>
+
+          <p>
+            <cite>
+              <a href="https://twitter.com/jashkenas">@jashkenas</a>
+            </cite>
+          </p>
+
+        </blockquote>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>So what is Flux?</h2>
+
+        <div class="slide">
+          <p>
+            Flux is an application architecture for building interfaces that works exceptionally well with React&apos;s reactive nature.
+          </p>
+        </div>
+
+        <div class="slide">
+          <p>
+            Flux employs unidirectional data flow:
+          </p>
+          <pre>
+            <code>
+  Views --> (actions) --> Dispatcher --> (callback) --> Stores ¬
+  Ʌ                                                            |
+  |                                                            V
+  +- (Controller-Views event handlers) - (Stores emit events) -+
+            </code>
+          </pre>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="slide">
+
+      <h2>Stores</h2>
+
+      <p>
+        Stores contain the application state and logic. Their role is somewhat similar to a model in a traditional MVC, but they manage the state of many objects — they are not instances of one object. Nor are they the same as Backbone's collections. More than simply managing a collection of ORM-style objects, stores manage the application state for a particular domain within the application.
+      </p>
+
+<pre><code>var Dispatcher = require('./Dispatcher');
+var Constants = require('../Constants');
+var Request = require('./Request');
+var Promise = require('es6-promise').Promise;
+var request = new Request();
+var customer;
+
+var makeBooking = function(customer){
+  return request
+  .post(customer)
+  .then(function(customer){
+    customer = customer;
+    Store.emitChange(Constants.CHANGE);
+  }.bind(this));
+};
+
+module.exports = {
+  getCustomer: function(){
+    return customer;
+  }
+  , dispatcherIndex: Dispatcher.register(function(payload) {
+    var action = payload.action;
+    var event = action.actionType;
+    switch(event){
+      case Constants.Book:
+        makeBooking(action.customer);;
+      break;
+    }
+    return true;
+  })
+});</code></pre>
+
+    </section>
+
+    <section class="slide">
+
+        <h2>View Controller</h2>
+
+        <pre><code>var React = require('react');
+var Input = require('./input.react');
+var Actions = require('./actions');
+var Constants = require('/constants');
+var Store = require('../stores/booking-store');
+
+module.exports = React.createClass({
+  getInitialState: function(){
+    return { customer: Store.getCustomer() };
+  }
+  , componentDidMount: function(){
+    Store.addChangeListener(Constants.CHANGE, this._onChange);
+  }
+  , componentWillUnmount: function() {
+    Store.removeChangeListener(Constants.CHANGE, this._onChange);
+  }
+  , render: function(){
+    var customer = this.state.customer;
+    return (
+      &lt;form onSubmit={this._onSubmit}&gt;
+        &lt;Input label="First Name" value={customer.firstName} /&gt;
+      &lt;/form&gt;
+    );
+  }
+  , _onChange: function(){
+    this.setState({ customer: Store.getCustomer() });
+  }
+  , _onSubmit: function(event){
+    ...
+    Actions.createBooking({ firstName: firstName, ...  });
+  }
+});</code></pre>
+
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>View Component</h2>
+
+        <pre><code>var React = require('react');
+
+module.exports = React.createClass({
+  render: function(){
+    return (
+      &lt;label&gt;
+        {this.props.label}
+        &lt;input
+          value={this.props.value}
+        /&gt;
+      &lt;/label&gt;
+    );
+  }
+});</code></pre>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>Actions</h2>
+
+        <p>
+          The dispatcher exposes a method that allows a view to trigger a dispatch to the stores, and to include a payload of data, or an action.
+        </p>
+
+<pre><code>var Dispatcher = require('./Dispatcher');
+var Constants = require('./Constants');
+var Actions = {
+  createBooking: function(customer){
+    Dispatcher.handleViewAction({
+      actionType: Constants.Book
+      , customer: customer
+    });
+  }
+};
+module.exports = Actions;</code></pre>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>Dispatcher</h2>
+
+        <p>
+          The dispatcher is the central hub that manages all data flow in a Flux application. It is essentially a registry of callbacks into the stores. Each store registers itself and provides a callback. When the dispatcher responds to an action, all stores in the application are sent the data payload provided by the action via the callbacks in the registry.
+        </p>
+
+        <p>Inside store.js:</p>
+
+        <pre><code>
+  case Constants.Book:
+  Dispatcher.waitFor([
+    AnotherStore.dispatcherIndex
+  ], function() {
+    Store.createBooking(action.customer);
+    Store.emit('change');
+  });
+  break;
+        </code></pre>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>Store Gotchas</h2>
+        <ul>
+          <li class="slide">
+            <h4>Duplicate Data</h4>
+            <p>Store A has a piece of data: first name last name, etc. Store B also contains this data.</p>
+            <p>I never thought about having data in duplicate places. Seemed like a terrible idea. But it is a common solution.</p>
+          </li>
+          <li class="slide">
+            <h4>Circular store references</h4>
+            <p>Store A requires Store B and Store B requires Store A.</p>
+            <p>Is that possible?</p>
+          </li>
+        </ul>
+        <div class="slide">
+          <h4>Solution - Dependency Injection</h4>
+        </div>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>container.js</h2>
+        <pre>
+          <code>
+var Container = {
+    dependencies: {},
+    process: function(){
+      var args = Array.prototype.slice.call(arguments);
+      args.forEach(function(target){
+        ...
+        target.inject.apply(target, this.getDependencies(deps));
+      }.bind(this));
+    },
+    getDependencies: function(arr){
+      ...
+    },
+    register: function(name, dependency){
+      ...
+    }
+};
+          </code>
+        </pre>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>app.js</h2>
+        <pre>
+          <code>
+Container.register(
+  'RouteStore', RouteStore
+  , 'CallStore', CallStore
+  ...
+);
+
+Container.process(
+  RouteStore
+  , CallStore
+  ...
+);
+          </code>
+        </pre>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>store.js</h2>
+        <pre>
+          <code>
+module.exports.inject = function(RouteStore, CallStore ...){
+  StoreRequest.prototype.routeStore = RouteStore;
+  StoreRequest.prototype.callStore = CallStore;
+  ...
+};
+          </code>
+        </pre>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>Routers</h2>
+        <p>Well designed apps aren&apos;t actually a single page.</p>
+        <ul>
+          <li class="slide">
+            <a href="https://github.com/rackt/react-router">github.com/rackt/react-router</a>
+            <p>
+              A complete routing solution for React.js highly inspired by the Ember.js routing API. Sadly, does not fully support React 0.12
+            </p>
+          </li>
+          <li class="slide">
+            <a href="https://github.com/STRML/react-router-component">github.com/STRML/react-router-component</a>
+            <p>
+              Navigation callbacks,
+              Beware, on the experimental branch, Router.navigate(href) doesn&apos;t work so, again, does not fully support react 0.12
+            </p>
+          </li>
+          <li class="slide">
+            <a href="https://github.com/larrymyers/react-mini-router">React Mini Router</a>
+            <p>
+              A minimal URL router for React.js. Syntax is very similar to Backbone. And works with React 0.12.
+            </p>
+          </li>
+      </div>
+
+    </section>
+
+    <section class="slide">
+      <div class="deck-slide-scaler">
+
+        <h2>React Mini Router Mixin</h2>
+
+<pre><code>var React = require('react');
+var RouterMixin = require('react-mini-router').RouterMixin;
+var App = React.createClass({
+    mixins: [RouterMixin],
+    routes: {
+        '/': 'home',
+    },
+    render: function() {
+        return this.renderCurrentRoute();
+    },
+    home: function() {
+        return &lt;div&gt;Hello Austin JS!&lt;/div&gt;;
+    },
+});</code></pre>
+
+      </div>
+    </section>
+
+    <section class="slide">
+      <div class="deck-slide-scaler">
+
+        <h2>RouteStore and Navigation</h2>
+
+<pre><code>var navigate = require('react-mini-router').navigate;
+var Constants = require('./constants');
+var Store = {
+  dispatcherIndex: AppDispatcher.register(function(payload) {
+    switch(action.actionType) {
+      case Constants.Book:
+        navigate('/book');
+        break;
+    }
+    return true;
+  })
+});
+module.exports = Store;</code></pre>
+
+      </div>
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+        <h2>Other Gotchas</h2>
+        <ul>
+          <li class="slide">
+            <h3>v0.XX.XX</h3>
+            <p>React v0.10, v0.11 and v0.12 all in last six months</p>
+            <p>node.js current versions is v0.10.33</p>
+            <p>Plenty of third-party modules already dated.</p>
+          </li>
+          <li class="slide">
+            <h3>Boredom</h3>
+            <p>Store -> View Controller -> Views -> Actions -> Dispacter -> Store -> View Controller -> Views -> Action ...
+          </li>
+          <li class="slide">
+            <h3>Suppression of errors</h3>
+            <p>I cannot explain this one and have not dug into it.</p>
+          </li>
+        </ul>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>Browserify</h2>
+        <p>
+          browserify is a tool for compiling node-flavored commonjs modules for the browser.
+        </p>
+        <p>
+          You can use browserify to organize your code and use third-party libraries even if you don't use node itself in any other capacity except for bundling and installing packages with npm.
+        </p>
+        <p>
+          The module system that browserify uses is the same as node, so packages published to npm that were originally intended for use in node but not browsers will work just fine in the browser too.
+        </p>
+        <p>
+          Increasingly, people are publishing modules to npm which are intentionally designed to work in both node and in the browser using browserify and many packages on npm are intended for use in just the browser. npm is for all javascript, front or backend alike.
+        </p>
+
+        <h2>Gulp</h2>
+        <p>The streaming build system</p>
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <h2>What else</h2>
+
+        <ul>
+          <li class="slide">
+            <h3>Tools and Resources</h3>
+            <p>
+              <a href="http://facebook.github.io/react/docs/getting-started.html">React documentation</a>, examples and blog from facebook. Great place to start.
+            </p>
+            <p>
+              <a href="https://github.com/enaqx/awesome-react">enaqx/awesome-react</a>, a collection of awesome React libraries, resources and shiny things.
+            </p>
+          </li>
+          <li class="slide">
+            <h3>
+              Isomorphic apps
+            </h3>
+            <a href="https://github.com/reactjs/express-react-views">Express React View</a>
+
+          </li>
+          <li class="slide">
+            <h3>
+              Immutalble data
+            </h3>
+            <p>
+              <a href="http://facebook.github.io/immutable-js/">http://facebook.github.io/immutable-js/</a>
+            </p>
+          </li>
+        </ul>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+
+      <div class="deck-slide-scaler">
+
+        <blockquote>
+
+          <p>
+            “The result: people choose frameworks largely based on advice from people who don’t know what they’re talking about.”
+          </p>
+
+          <p>
+            <cite>
+              <a href="https://twitter.com/jashkenas">@jashkenas</a>
+            </cite>
+          </p>
+
+        </blockquote>
+
+      </div>
+
+    </section>
+
+    <section class="slide">
+      <h1>Thanks</h1>
+    </section>
+
+    <!-- End slides. -->
+
+    <!-- Begin extension snippets. Add or remove as needed. -->
+
+    <!-- deck.navigation snippet -->
+    <div aria-role="navigation">
+      <a href="#" class="deck-prev-link" title="Previous">&#8592;</a>
+      <a href="#" class="deck-next-link" title="Next">&#8594;</a>
+    </div>
+
+    <!-- deck.status snippet -->
+    <p class="deck-status" aria-role="status">
+      <span class="deck-status-current"></span>
+      /
+      <span class="deck-status-total"></span>
+    </p>
+
+    <!-- deck.goto snippet -->
+    <form action="." method="get" class="goto-form">
+      <label for="goto-slide">Go to slide:</label>
+      <input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
+      <datalist id="goto-datalist"></datalist>
+      <input type="submit" value="Go">
+    </form>
+
+    <!-- End extension snippets. -->
+  </div>
+
+<!-- Required JS files. -->
+<script src="jquery.min.js"></script>
+<script src="core/deck.core.js"></script>
+
+<!-- Extension JS files. Add or remove as needed. -->
+<script src="extensions/menu/deck.menu.js"></script>
+<script src="extensions/goto/deck.goto.js"></script>
+<script src="extensions/status/deck.status.js"></script>
+<script src="extensions/navigation/deck.navigation.js"></script>
+<script src="extensions/scale/deck.scale.js"></script>
+
+<!-- Initialize the deck. You can put this in an external file if desired. -->
+<script>
+  $(function() {
+    $.deck('.slide');
+  });
+</script>
+</body>
+</html>
